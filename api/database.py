@@ -36,3 +36,6 @@ cur.execute(user_model)
 #close database connection
 con.close()
 
+
+
+
