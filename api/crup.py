@@ -1,11 +1,31 @@
 '''
-c=> Create (insert into)
-R=> Read (select)
-U=> update (update)
-D=> Delete (delete)
+c => Craete (INSET INTO)
+R => Reas (SELECT)
+U => Update (Udate)
+D => Delete (DELATE)
 
-update and delete need a where clause *
+UPDATE AND DELETE NEED A WHERE CLAUSE
 '''
+from database import con , cur
+import os
+def main_menu():
+    print("::: MAIN MENU:::")
+    print("[1]. Create user ")
+    print("[2]. List users ")
+    print("[3]. Exit")
+    opt = int(input('press any option:'))
+    return opt
 
 def create_user():
-    new_user_query = "INSERT INTO users ()"
+    new_user_query ='''
+    INSERT INTO users(username,email,password) 
+        VALUES('Ederson','stive98765@gmail.com','123456')
+    '''
+    con.execute(new_user_query)
+    con.commit()
+    
+    print('user create succesfully.')
+    os.system('pause')
+    con.close()
+  
+create_user()

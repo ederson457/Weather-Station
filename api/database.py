@@ -1,40 +1,40 @@
 '''
-Dev: Joan C.
-Script description: wather-station DataBase
+Dev: Ederson V.
+Script description : Weather - Station DataBase
 Engine: SQLite3
 Data: 09-09-2024
 '''
 
-#Import engine database package
+#Import database engine package
 import sqlite3
 
-#Create weather-station database connection
+#Create Weather-station database connection
 con = sqlite3.connect('weather_station.db')
 
-#create.cursor()
-cur = con.cursor()
+#Create cursor
+#permite ejecutar las  operaciones cur
+cur = con.cursor() 
 
-#Users model
-user_model = '''
+#User model
+users_model = '''
     CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY ,
+        id INTEGER PRIMARY KEY,
         username TEXT NOT NULL,
-        password TEXT NOT NULL,
         email TEXT NOT NULL,
-        role TEXT NOT NULL,
-        status boolean default True,
-        created_at TIMESTAMP DEFAULT(datetime('now','localtime')),
-        updated_at TIMESTAMP DEFAULT(datetime('now','localtime')),
-        deleted_at null 
-    );
-    
-    '''
+        password TEXT NOT NULL,
+        role INTEGER NOT NULL DEFAULT 1,
+        status BOOLEAN DEFAULT true,
+        created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        update_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        deleted_at null
+    )
+'''
 
-#execute query
-cur.execute(user_model)
+#Execute query
+cur.execute(users_model)
 
-#close database connection
-con.close()
+#Close connection
+#con.close()
     
 
 
