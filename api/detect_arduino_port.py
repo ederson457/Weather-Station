@@ -20,7 +20,7 @@ def get_arduino_port():
 
     return ports.device
 print("No arduino port detected")
-return None
+
 
 p=get_arduino_port()
 print (p)

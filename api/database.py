@@ -30,8 +30,20 @@ users_model = '''
     )
 '''
 
+#test data model
+test_data = '''
+    CREATE TABLE IF NOT EXISTS test_data (
+        id INTEGER PRIMARY KEY,
+        temp INTEGER NOT NULL,
+        hum INTEGER NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+
+'''
+
 #Execute query
 cur.execute(users_model)
+cur.execute(test_data)
 
 #Close connection
 #con.close()
